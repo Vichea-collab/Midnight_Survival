@@ -1,0 +1,32 @@
+# VENDOR EVERYTHING EXCEPT C# TO FORCE A C# ONLY COUNT
+
+# 1. EXPLICITLY COUNT C#
+*.cs linguist-language=C#
+
+# 2. VENDOR/IGNORE ALL OTHER COMMON UNITY FILES
+# This will exclude assets, configuration, and shader code.
+*.mat linguist-vendored
+*.asset linguist-vendored
+*.prefab linguist-vendored
+*.unity linguist-vendored
+*.meta linguist-vendored
+*.json linguist-vendored
+*.asmdef linguist-vendored
+*.txt linguist-vendored
+*.md linguist-vendored
+*.xml linguist-vendored
+*.html linguist-vendored
+
+# 3. VENDOR ALL SHADER/GRAPHICS FILES
+*.shader linguist-vendored
+*.hlsl linguist-vendored
+*.cginc linguist-vendored
+
+# 4. VENDOR COMMON IMAGE/AUDIO FILES (Optional but helpful)
+# If you have large PNGs, this ensures the size doesn't skew the results
+*.png linguist-vendored
+*.jpg linguist-vendored
+*.ogg linguist-vendored
+*.mp3 linguist-vendored
+*.wav linguist-vendored
+*.sprite linguist-vendored

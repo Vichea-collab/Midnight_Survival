@@ -1,0 +1,63 @@
+## Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+[Uu]serSettings/
+
+## Unity cache
+[Ll]ibrary/
+[Bb]uild/
+[Bb]uilds/
+[Tt]emp/
+[Oo]bj/
+
+## Visual Studio / JetBrains
+.vs/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Unity Collaborate
+.collabignore
+
+## Crash and reports
+sysinfo.txt
+
+## Rider
+.idea/
+*.sln.iml
+
+## Gradle (Android)
+.gradle/
+*.apk
+*.aab
+*.keystore
+
+## Builds
+*.unitypackage
+*.apk
+*.aab
+
+## Addressables
+[Aa]sset[Bb]undles/
+Assets/StreamingAssets/aa/
+
+## Auto-generated
+ExportedObj/
