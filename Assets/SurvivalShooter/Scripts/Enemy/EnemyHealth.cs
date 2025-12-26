@@ -36,6 +36,21 @@ public class EnemyHealth : MonoBehaviour
 
         // Setting the current health when the enemy first spawns.
         currentHealth = startingHealth;
+
+        bool hasHurtMetadata = hurtClip != null && hurtClip.Clip != null;
+        bool hasDeathMetadata = deathClip != null && deathClip.Clip != null;
+        bool hasHurtFallback = enemyAudio != null && enemyAudio.clip != null;
+
+        // Warn only if we have no way to play a clip at all.
+        if (!hasHurtMetadata && !hasHurtFallback)
+        {
+            Debug.LogWarning($"Enemy '{name}' has no hurt audio assigned (metadata or AudioSource.clip). Hurt SFX will be silent.", this);
+        }
+
+        if (!hasDeathMetadata && !hasHurtFallback)
+        {
+            Debug.LogWarning($"Enemy '{name}' has no death audio assigned (metadata or AudioSource.clip). Death SFX will be silent.", this);
+        }
     }
 
 
@@ -58,7 +73,14 @@ public class EnemyHealth : MonoBehaviour
             return;
 
         // Play the hurt sound effect.
-        enemyAudio.Play(hurtClip);
+        if (hurtClip != null && hurtClip.Clip != null)
+        {
+            enemyAudio.Play(hurtClip);
+        }
+        else if (enemyAudio.clip != null)
+        {
+            enemyAudio.Play();
+        }
 
         // Reduce the current health by the amount of damage sustained.
         currentHealth -= amount;
@@ -109,7 +131,14 @@ public class EnemyHealth : MonoBehaviour
         anim.SetTrigger ("Dead");
 
         // Change the audio clip of the audio source to the death clip and play it (this will stop the hurt clip playing).
-        enemyAudio.Play (deathClip);
+        if (deathClip != null && deathClip.Clip != null)
+        {
+            enemyAudio.Play (deathClip);
+        }
+        else if (enemyAudio.clip != null)
+        {
+            enemyAudio.Play();
+        }
 
         // Play death particles
         deathParticles.Play();

@@ -106,7 +106,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     private async Task DoAlphaTransitionAsync(CanvasGroup group, float targetAlpha, float duration, CancellationToken token)

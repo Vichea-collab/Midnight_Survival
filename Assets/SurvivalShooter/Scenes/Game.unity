@@ -155,7 +155,7 @@ MonoBehaviour:
   initialSpawnDelay: 1
   minimumSpawnDelay: 1
   minimumWaveDelay: 3
-  spawnsPerWave: 5
+  spawnsPerWave: 10
   maxActiveEnemies: 30
   spawnPoints:
   - {fileID: 345275349}
@@ -227,7 +227,7 @@ LightingSettings:
   m_Name: Settings.lighting
   serializedVersion: 6
   m_GIWorkflowMode: 1
-  m_EnableBakedLightmaps: 0
+  m_EnableBakedLightmaps: 1
   m_EnableRealtimeLightmaps: 1
   m_RealtimeEnvironmentLighting: 1
   m_BounceScale: 1
@@ -4726,11 +4726,10 @@ MonoBehaviour:
       m_Calls: []
   enemiesPerRound: 30
   rounds:
-  - {fileID: 11400000, guid: 030d1a17e71e08246a6b4d7c00f6e7bf, type: 2}
-  - {fileID: 11400000, guid: 63634ef629fd50a40a70965b812c82bb, type: 2}
   - {fileID: 11400000, guid: a0650b9ce53c13a48b93fbb850f74648, type: 2}
   - {fileID: 11400000, guid: 745a8ea0ef114fe48a175f44689521f6, type: 2}
   - {fileID: 11400000, guid: a0a19b3a3060da04d95733fc96b08045, type: 2}
+  - {fileID: 11400000, guid: 7ab43e13a5bba764682ad4a129ddf872, type: 2}
   - {fileID: 11400000, guid: 9e8b4d6e8ed849a4dbb0da3f378d5597, type: 2}
   <EnemyManager>k__BackingField: {fileID: 14871711}
   <HudAnimator>k__BackingField: {fileID: 1139190137}

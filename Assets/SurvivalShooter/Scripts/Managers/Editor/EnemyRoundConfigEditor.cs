@@ -19,6 +19,9 @@ public class EnemyRoundConfigEditor : Editor
     // gets called when inspector needs to refresh
     public override void OnInspectorGUI()
     {
+        // pull latest serialized values before drawing the inspector
+        serializedObject.Update();
+
         EditorGUILayout.PropertyField(propEnemyCount);
         EditorGUILayout.PropertyField(propEnemyChances);
         if(GUILayout.Button("Reset Weights"))
@@ -46,5 +49,8 @@ public class EnemyRoundConfigEditor : Editor
         {
             EditorGUILayout.HelpBox("One or more enemy overrides will be unused since its position is more than the total number of enemies spawned.", MessageType.Warning);
         }
+
+        // push any edited values back to the asset
+        serializedObject.ApplyModifiedProperties();
     }
 }

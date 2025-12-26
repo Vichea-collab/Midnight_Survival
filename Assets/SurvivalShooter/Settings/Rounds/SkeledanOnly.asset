@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b8058dcce2c324788c3716f6de9fa1, type: 3}
   m_Name: SkeledanOnly
   m_EditorClassIdentifier: 
-  numberOfEnemies: 30
+  numberOfEnemies: 20
   enemyChances:
   - enemyPrefab: {fileID: 8174756258586021215, guid: aa582d2bcb582a04ea0568e8f8222b90,
       type: 3}

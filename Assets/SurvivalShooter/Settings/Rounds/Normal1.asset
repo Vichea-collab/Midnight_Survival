@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b8058dcce2c324788c3716f6de9fa1, type: 3}
   m_Name: Normal1
   m_EditorClassIdentifier: 
-  numberOfEnemies: 20
+  numberOfEnemies: 10
   enemyChances:
   - enemyPrefab: {fileID: 100000, guid: ea3c2728ef33e3a4d99527a86cda6465, type: 3}
     weight: 1

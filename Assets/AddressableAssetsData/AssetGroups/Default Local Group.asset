@@ -21,9 +21,10 @@ MonoBehaviour:
     m_Address: PlayerManager
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ba0f6d9ef310b9d40b636d5628585883, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 01824b60a1b234e4eac44e26c07284d1, type: 2}
     - {fileID: 11400000, guid: 6481ec1bad76c584fa35a9135a327f21, type: 2}
+    - {fileID: 11400000, guid: 01824b60a1b234e4eac44e26c07284d1, type: 2}

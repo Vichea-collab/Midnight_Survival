@@ -8,17 +8,17 @@ using UnityEngine.SceneManagement;
 public class CheatManager
 {
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    private void Initialize()
+    private static void Initialize()
     {
         SceneManager.activeSceneChanged += HandleActiveSceneChanged;
     }
 
-    private void HandleActiveSceneChanged(Scene arg0, Scene arg1)
+    private static void HandleActiveSceneChanged(Scene arg0, Scene arg1)
     {
         InjectActiveScene();
     }
 
-    private void InjectActiveScene()
+    private static void InjectActiveScene()
     {
         
     }

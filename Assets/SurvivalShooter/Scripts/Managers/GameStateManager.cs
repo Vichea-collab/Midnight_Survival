@@ -149,7 +149,7 @@ public class GameStateManager : MonoBehaviour
     //
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-    private void HandleGameReset()
+    private static void HandleGameReset()
     {
         Instance = null;
     }

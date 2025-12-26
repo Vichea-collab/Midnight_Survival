@@ -26,7 +26,19 @@ public class PlayerHealth : MonoBehaviour
     private PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
     
     private bool isDead;                                                // Whether the player is dead.
-    private bool damaged;                                               // True when the player gets damaged.
+    
+    [Header("Regeneration")]
+    [Tooltip("Enable passive healing when the player has not been damaged for a short time.")]
+    [SerializeField] private bool enableRegeneration = true;
+    [Tooltip("Seconds after the last damage taken before healing can start.")]
+    [SerializeField] private float regenDelay = 3f;
+    [Tooltip("Seconds between each heal tick.")]
+    [SerializeField] private float regenInterval = 1f;
+    [Tooltip("Health restored each tick once regeneration starts.")]
+    [SerializeField] private int regenAmount = 5;
+
+    private float lastDamageTime = Mathf.NegativeInfinity;
+    private float regenTimer = 0f;
 
     void Start()
     {
@@ -36,8 +48,7 @@ public class PlayerHealth : MonoBehaviour
     
     void Update ()
     {
-        // Reset the damaged flag.
-        damaged = false;
+        TryRegenerateHealth();
     }
 
 
@@ -45,11 +56,12 @@ public class PlayerHealth : MonoBehaviour
     {
         if(amount == 0) return;
 
-        // Set the damaged flag so the screen will flash.
-        damaged = true;
-
         // Reduce the current health by the damage amount.
         currentHealth -= amount;
+
+        // Reset regen timers since the player just took damage.
+        lastDamageTime = Time.time;
+        regenTimer = 0f;
 
         // Play the hurt sound effect.
         playerAudio.PlayOneShot(playerHurtSound);
@@ -65,6 +77,30 @@ public class PlayerHealth : MonoBehaviour
         OnHealthChanged.Invoke(currentHealth);
     }
 
+    private void Heal(int amount)
+    {
+        if (isDead || amount <= 0) { return; }
+
+        int newHealth = Mathf.Min(currentHealth + amount, startingHealth);
+        if (newHealth == currentHealth) { return; }
+
+        currentHealth = newHealth;
+        OnHealthChanged.Invoke(currentHealth);
+    }
+
+    private void TryRegenerateHealth()
+    {
+        if (!enableRegeneration || isDead) { return; }
+        if (currentHealth >= startingHealth) { return; }
+        if (Time.time - lastDamageTime < regenDelay) { return; }
+
+        regenTimer += Time.deltaTime;
+        if (regenTimer >= regenInterval)
+        {
+            regenTimer = 0f;
+            Heal(regenAmount);
+        }
+    }
 
     void Death ()
     {

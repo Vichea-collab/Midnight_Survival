@@ -35,6 +35,12 @@ public class EnemyRoundConfig : ScriptableObject
 
     public GameObject GetRandomEnemy()
     {
+        if (enemyBreakpoints.Count == 0 || maxBreakpointValue <= 0)
+        {
+            Debug.LogWarning("EnemyRoundConfig has no enemy chances configured.", this);
+            return null;
+        }
+
         int actualRoll = Random.Range(0, maxBreakpointValue);
 
         foreach(var bp in enemyBreakpoints)
@@ -88,13 +94,14 @@ public class EnemyRoundConfig : ScriptableObject
     }
     */
 
-    private void Awake()
-    {
-        BuildEnemyBreakpoints();
-    }
-
     private void OnValidate()
     {
+        BuildEnemyBreakpoints();
         // TODO: ensure overrides are sorted
+    }
+
+    private void OnEnable()
+    {
+        BuildEnemyBreakpoints();
     }
 }

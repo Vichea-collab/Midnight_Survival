@@ -12,7 +12,7 @@ public class PlayerObjectiveUI : MonoBehaviour
     public string inProgressText = "In Progress";
     public string gameoverText = "Game Over";
     
-    public Animation animation;
+    public new Animation animation;
     
     private void Start()
     {
