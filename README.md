@@ -1,6 +1,6 @@
 # Midnight Survival Shooter
 
-DEMO: https://youtu.be/1dQSaE7-rxs
+DEMO: [https://youtu.be/1dQSaE7-rxs](https://youtu.be/jWRlB6ChbkQ)
 
 Midnight Survival is a simple 3D top-down survival game where the player must stay alive against waves of glowing toy-like enemies inside a stylized bedroom environment. The game focuses on quick action, movement, and basic shooting mechanics.
 
